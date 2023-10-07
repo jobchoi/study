@@ -1,0 +1,4 @@
+# tmux 적용
+## terminal 창 분리해서 보기
+### 참고 링크 모음 
+* https://blog.naver.com/hdh7485/221445458911
