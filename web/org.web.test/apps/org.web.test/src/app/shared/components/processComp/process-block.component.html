@@ -1,0 +1,23 @@
+
+ <div class="grid grid-rows-1 toolbar m-4">
+  <div class="grid grid-cols-3 gap-6">
+  <button class="rounded-md p-2 w-auto bg-green-400" (click)="selectBlockType('put-together')">Put together</button>
+  <button class="rounded-md p-2 w-auto bg-green-400" (click)="selectBlockType('packing')">packing</button>
+  <button class="rounded-md p-2 w-auto bg-green-400" (click)="selectBlockType('shipment')">shipment</button>
+  </div>
+</div>
+
+<div class="canvas rounded-md" (click)="placeBlock($event)">
+  <div name="processesBlock" *ngFor="let process of processes"
+       class="text-center drag-box bg-blue-500 drag-item "
+       [ngStyle]="{ 
+                    left: process.x + 'px',
+                    top: process.y + 'px',
+                    w:process.w+'40px'
+                  }"
+       cdkDrag
+       [cdkDragFreeDragPosition]="{ x: process.x, y: process.y }"
+       (cdkDragEnded)="onDragEnd($event, process)">
+    {{ process.name }}
+  </div>
+</div>

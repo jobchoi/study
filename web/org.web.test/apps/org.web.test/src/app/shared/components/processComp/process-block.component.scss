@@ -1,0 +1,37 @@
+// .drop-container {
+//   width: 300px;
+// //   min-height: 50px;
+//   border: 2px dashed #ccc;
+//   padding: 10px;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 10px;
+// }
+
+// .drag-item {
+//   padding: 10px;
+//   background-color: #e0f7fa;
+//   border: 1px solid #00796b;
+//   border-radius: 4px;
+//   cursor: move;
+//   text-align: center;
+// }
+
+
+.drop-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border: 1px solid #ccc;
+}
+
+.drag-item {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  background-color: lightblue;
+  border: 1px solid #999;
+  text-align: center;
+  line-height: 60px;
+  cursor: move;
+}
