@@ -1,6 +1,5 @@
 #include <iostream>
 
-
 void funMax(int*, int* );
 void getData(int *,int *);
 
