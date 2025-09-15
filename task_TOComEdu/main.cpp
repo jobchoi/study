@@ -17,6 +17,10 @@ void getData(int *a,int *b) {
 	std::cout << "input b" << std::endl;
 	std::cin >> *b;
 
+	if (a <= 0 || b <= 0)
+	{
+		std::cout << "1이상에 양수를 입력해주세요. a : " << *a<< " b : " << *b << std::endl;
+	}
 	if(*a==*b){
 		
 		std::cout << "두수가 동일합니다. a : " << *a<< " b : " << *b << std::endl;
