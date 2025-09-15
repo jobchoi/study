@@ -17,7 +17,10 @@ void getData(int *a,int *b) {
 	std::cout << "input b" << std::endl;
 	std::cin >> *b;
 
-	std::cout << "a : " << *a<< " b : " << *b << std::endl;
+	if(*a==*b){
+		
+		std::cout << "두수가 동일합니다. a : " << *a<< " b : " << *b << std::endl;
+	}
 
 	funMax(*a, *b);
 	return ;
@@ -50,7 +53,7 @@ void funMax(int &a, int &b) {
 	}
 	else
 	{
-		std::cout << "(4(. else  => a : " << a << " b : " << b << std::endl;
+		std::cout << "(4(. else 입력한 값을 확인(입력값을 양수에 한해서)  => a : " << a << " b : " << b << std::endl;
 	}
 	return;
 }
