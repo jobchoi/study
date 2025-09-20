@@ -24,7 +24,7 @@ void getData(int *a,int *b) {
 	std::cout << "input b" << std::endl;
 	std::cin >> *b;
 
-	if (a <= 0 || b <= 0) // 입력된 값이 1보다 작은 값인지 체크
+	if (*a <= 0 || *b <= 0) // 입력된 값이 1보다 작은 값인지 체크
 	{
 		std::cout << "1이상에 양수를 입력해주세요. a : " << *a<< " b : " << *b << std::endl;
 	}
