@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx serve org.web.test",
+    "startTime": "2025-05-14T02:30:53.319Z",
+    "endTime": "2025-05-14T02:30:59.036Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "org.web.test:serve:development",
+      "target": "serve",
+      "projectName": "org.web.test",
+      "hash": "13531246974873273182",
+      "startTime": "2025-05-14T02:30:53.326Z",
+      "endTime": "2025-05-14T02:30:59.036Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}

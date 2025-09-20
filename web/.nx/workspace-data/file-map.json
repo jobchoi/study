@@ -1,0 +1,367 @@
+{
+  "version": "6.0",
+  "nxVersion": "19.5.7",
+  "deps": {
+    "nx": "19.5.7"
+  },
+  "pathMappings": {},
+  "nxJsonPlugins": [],
+  "fileMap": {
+    "nonProjectFiles": [
+      {
+        "file": "org.web.test/.gitignore",
+        "hash": "16399683567307215337"
+      },
+      {
+        "file": "nx.bat",
+        "hash": "16119536321561623970"
+      },
+      {
+        "file": "org.web.test/.editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "org.web.test/package-lock.json",
+        "hash": "1229329211037178362"
+      },
+      {
+        "file": "org.web.test/package.json",
+        "hash": "10350328540608847901"
+      },
+      {
+        "file": "org.web.test/.prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": "org.web.test/.prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "nx",
+        "hash": "17165975525224888679"
+      },
+      {
+        "file": "org.web.test/.eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": "org.web.test/.vscode/extensions.json",
+        "hash": "17425123947026961272"
+      },
+      {
+        "file": "org.web.test/jest.config.ts",
+        "hash": "3494843969422251966"
+      },
+      {
+        "file": "org.web.leanspire/jest.config.ts",
+        "hash": "3494843969422251966"
+      },
+      {
+        "file": ".gitignore",
+        "hash": "12990309872111536764"
+      },
+      {
+        "file": "org.web.leanspire/README.md",
+        "hash": "11797720283943420366"
+      },
+      {
+        "file": "org.web.leanspire/tsconfig.base.json",
+        "hash": "16936441711144470533"
+      },
+      {
+        "file": "org.web.test/postcss.config.js",
+        "hash": "1579725330904862112"
+      },
+      {
+        "file": "org.web.test/jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "org.web.leanspire/tailwind.config.js",
+        "hash": "7986470667704694812"
+      },
+      {
+        "file": "org.web.test/.eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": "org.web.leanspire/.eslintignore",
+        "hash": "7663861978715868291"
+      },
+      {
+        "file": "org.web.leanspire/.prettierrc",
+        "hash": "16267754514737964994"
+      },
+      {
+        "file": "org.web.test/nx.json",
+        "hash": "6607296233491751949"
+      },
+      {
+        "file": "org.web.test/README.md",
+        "hash": "15044527302716508279"
+      },
+      {
+        "file": "org.web.leanspire/package-lock.json",
+        "hash": "11374203753151772278"
+      },
+      {
+        "file": "nx.json",
+        "hash": "12491095708943389393"
+      },
+      {
+        "file": "org.web.leanspire/.gitignore",
+        "hash": "16399683567307215337"
+      },
+      {
+        "file": "org.web.leanspire/.editorconfig",
+        "hash": "5443105041930014821"
+      },
+      {
+        "file": "org.web.test/tsconfig.base.json",
+        "hash": "16936441711144470533"
+      },
+      {
+        "file": "org.web.leanspire/.github/workflows/ci.yml",
+        "hash": "14709568906347065970"
+      },
+      {
+        "file": "org.web.leanspire/.prettierignore",
+        "hash": "5407418692668764289"
+      },
+      {
+        "file": ".nx/nxw.js",
+        "hash": "11254603345854076312"
+      },
+      {
+        "file": "org.web.leanspire/jest.preset.js",
+        "hash": "9430166341120122740"
+      },
+      {
+        "file": "org.web.leanspire/nx.json",
+        "hash": "8865779962363717475"
+      },
+      {
+        "file": "org.web.leanspire/package.json",
+        "hash": "7031821511594643543"
+      },
+      {
+        "file": "org.web.test/.github/workflows/ci.yml",
+        "hash": "1152311955112129922"
+      },
+      {
+        "file": "org.web.leanspire/.eslintrc.json",
+        "hash": "18315524891129148814"
+      },
+      {
+        "file": "org.web.test/tailwind.config.js",
+        "hash": "4345553004202782910"
+      },
+      {
+        "file": "org.web.leanspire/.vscode/extensions.json",
+        "hash": "17425123947026961272"
+      }
+    ],
+    "projectFileMap": {
+      "org.web.leanspire-e2e": [
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire-e2e/.eslintrc.json",
+          "hash": "632147010597293032"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire-e2e/playwright.config.ts",
+          "hash": "8158621869002315454"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire-e2e/project.json",
+          "hash": "10677047024357069138"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire-e2e/src/example.spec.ts",
+          "hash": "16019101014373124625"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire-e2e/tsconfig.json",
+          "hash": "2800721902587063983"
+        }
+      ],
+      "org.web.test": [
+        {
+          "file": "org.web.test/apps/org.web.test/.eslintrc.json",
+          "hash": "3322449398258820698"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/jest.config.ts",
+          "hash": "3371479830947296897"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/project.json",
+          "hash": "9959743510293891627"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/app/app.component.html",
+          "hash": "2545443829390866050"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/app/app.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/app/app.component.spec.ts",
+          "hash": "8134581730921841742"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/app/app.component.ts",
+          "hash": "5714252646945506824"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/app/app.config.ts",
+          "hash": "6137170128205633588"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/app/app.routes.ts",
+          "hash": "6185150965714414910"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/app/nx-welcome.component.ts",
+          "hash": "278213330646343843"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/index.html",
+          "hash": "9028287074034301528"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/main.ts",
+          "hash": "16635586463787978962"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/styles.scss",
+          "hash": "11827223589103615267"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/src/test-setup.ts",
+          "hash": "12935735732682149507"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/tsconfig.app.json",
+          "hash": "8365644956319658761"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/tsconfig.editor.json",
+          "hash": "1055794200401717100"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/tsconfig.json",
+          "hash": "6424220500541951295"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test/tsconfig.spec.json",
+          "hash": "2927375835638640771"
+        }
+      ],
+      "org.web.leanspire": [
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/.eslintrc.json",
+          "hash": "3322449398258820698"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/jest.config.ts",
+          "hash": "16242854506807681541"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/project.json",
+          "hash": "13447093477817194711"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/public/favicon.ico",
+          "hash": "9303420814833116677"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/app/app.component.html",
+          "hash": "5654460193981998828"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/app/app.component.scss",
+          "hash": "3244421341483603138"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/app/app.component.spec.ts",
+          "hash": "6974956858854224400"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/app/app.component.ts",
+          "hash": "10811946350767364735"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/app/app.config.ts",
+          "hash": "6137170128205633588"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/app/app.routes.ts",
+          "hash": "6185150965714414910"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/app/nx-welcome.component.ts",
+          "hash": "9275225791428143568"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/index.html",
+          "hash": "17031848684528734757"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/main.ts",
+          "hash": "16635586463787978962"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/styles.scss",
+          "hash": "5195668842064076916"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/src/test-setup.ts",
+          "hash": "12935735732682149507"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/tsconfig.app.json",
+          "hash": "8365644956319658761"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/tsconfig.editor.json",
+          "hash": "1055794200401717100"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/tsconfig.json",
+          "hash": "6424220500541951295"
+        },
+        {
+          "file": "org.web.leanspire/apps/org.web.leanspire/tsconfig.spec.json",
+          "hash": "2927375835638640771"
+        }
+      ],
+      "org.web.test-e2e": [
+        {
+          "file": "org.web.test/apps/org.web.test-e2e/.eslintrc.json",
+          "hash": "632147010597293032"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test-e2e/playwright.config.ts",
+          "hash": "13508976262384728496"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test-e2e/project.json",
+          "hash": "13202971166323985972"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test-e2e/src/example.spec.ts",
+          "hash": "16019101014373124625"
+        },
+        {
+          "file": "org.web.test/apps/org.web.test-e2e/tsconfig.json",
+          "hash": "2800721902587063983"
+        }
+      ]
+    }
+  }
+}
