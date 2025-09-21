@@ -6,6 +6,8 @@ using namespace std;
 bool checkAB(int a,int b);
 int myLcm(int a,int b);
 
+int bfA, bfB;
+
 int main(){
     // 2개의 변수를 선언 및 정의
     int a(0), b(0);
@@ -22,6 +24,7 @@ int main(){
     }
     
 
+    bfA = a, bfB = b;
     cout <<"Start : "<< myLcm(a,b)<<endl;
     return 0;
 }
@@ -51,7 +54,7 @@ int myLcm(int a,int b){
     sleep(1);
 
     if(bufA > bufB){
-        bufB += b;
+        bufB += bfB;
         if(bufA == bufB){
             cout << "LCM : " << bufA <<endl;
             return bufA;
@@ -59,7 +62,7 @@ int myLcm(int a,int b){
             myLcm(bufA,bufB);
         }
     } else {
-        bufA += a;
+        bufA += bfA;
         if(bufA == bufB){
             cout << "LCM : " << bufA <<endl;
             return bufA;
