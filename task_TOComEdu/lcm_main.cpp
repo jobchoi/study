@@ -70,22 +70,5 @@ int myLcm(int a,int b){
             myLcm(bufA,bufB);
         }
     }
-    // if(a > b){
-    //     b +=b;
-    //     if(a == b){
-    //         cout << "LCM : " << a <<endl;
-    //         return a;
-    //     }else {
-    //         myLcm(a,b);
-    //     }
-    // } else {
-    //     a += a;
-    //     if(a == b){
-    //         cout << "LCM : " << a <<endl;
-    //         return a;
-    //     } else {
-    //         myLcm(a,b);
-    //     }
-    // }
     return 1;
 }
