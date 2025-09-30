@@ -41,8 +41,9 @@ class Select:
             else:
                 print("Invalid choice. Please try again.")
 
-Select.draw_shape():
-    
+# Select.draw_shape():
+
+    # test BJ 문제
 
 if __name__ == "__main__":
     app = Select()
