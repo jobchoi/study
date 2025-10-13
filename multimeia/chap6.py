@@ -51,37 +51,45 @@
 # print(f"Result : {resultScores}")
 
 
-# 클래스
-class Animal():
-# 이름을 입력받는 함수생성
-    def getName(self):
-        animalName = input("이름을 입력해주세요 : ")
+
+# =================== 메서드 오버라이딩을 해서 list에 입력받아보기 ===================
+# # 클래스
+# class Animal():
+# # 이름을 입력받는 함수생성
+#     def getName(self):
+#         animalName = input("이름을 입력해주세요 : ")
         
-        print(f"animalName : {animalName}")
-        
-        return animalName
-    
+#         # print(f"animalName : {animalName}")        
+#         return animalName
+
+# # 메서드 오버라이딩 연습하기
+# class dogs(Animal): # Animal 클래스 상속
+
+#     CNT = 3
+
+#     def getName(self):
+#         namelist = []
+
+#         for _ in range(self.CNT):
+#             namelist.append( super().getName()) # super().getName() -> Animal에 getName()
+
+#         print(f"dogs Name : {namelist}")
+
+# # 입력이 1번만 실행 -> 반복문x, list x
+# ani1 = Animal()
+# ani1.getName()
+
+# # list를 만들어 for를 이용하여 list에 값을 입력받음
+# # ani2 = dogs()
+# # ani2.getName()
 
 
+# =================== 리스트 요소 찾기 ===================
+
+heroes = ["스파이더맨", "슈퍼맨", "헐크", "아이언맨", "배트맨"]
+index = heroes.index("아이언맨")
 
 
-# 메서드 오버라이딩 연습하기
-class dogs(Animal): # Animal 클래스 상속
-
-    CNT = 3
-
-    def getName(self):
-        namelist = []
-
-        for _ in range(self.CNT):
-            namelist.append( super().getName()) # super().getName() -> Animal에 getName()
-
-        print(f"dogs Name : {namelist}")
-
-        
-
-ani1 = Animal()
-ani1.getName()
-
-# ani2 = dogs()
-# ani2.getName()
+if "슈퍼맨" in heroes:
+    index = heroes.index("스파이더맨")
+    print(f"index : {index}")
