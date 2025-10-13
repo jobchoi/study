@@ -52,11 +52,16 @@
 
 
 # 클래스
-class Animal:
+class Animal():
 # 이름을 입력받는 함수생성
     def getName(self):
-        animalName = input("이름을 입력해주세요")
+        animalName = input("이름을 입력해주세요 : ")
+        
+        print(f"animalName : {animalName}")
+        
         return animalName
+    
+
 
 
 
@@ -75,6 +80,8 @@ class dogs(Animal): # Animal 클래스 상속
 
         
 
+ani1 = Animal()
+ani1.getName()
 
-test = dogs()
-test.getName()
+# ani2 = dogs()
+# ani2.getName()
