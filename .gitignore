@@ -914,4 +914,4 @@ FodyWeavers.xsd
 
 # End of https://www.toptal.com/developers/gitignore/api/windows,linux,eclipse,visualstudio,visualstudiocode,jetbrains,intellij,java,python
 
-tempCodeRunnterFile.py
+*CodeRunnerFile.py
