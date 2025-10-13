@@ -38,3 +38,21 @@
 # print('( 0 )"""\\')
 # print('|"^"`    |')
 # print("||_/=\\\\__|")
+
+# # 2개의 수를 입력하여 해당 값에 따라 사분면이 어딘지 출력하기
+# pX = (int)(input())
+# pY = (int)(input())
+# position = 0
+
+# if pX > 0:
+#     if pY > 0:
+#         position = 1
+#     else:
+#         position = 4
+# else:
+#     if pY > 0:
+#         position = 2
+#     else:
+#         position = 3
+
+# print(position)
