@@ -1,0 +1,74 @@
+# ------------------------------------------------------------------
+# [설명] 파이썬 가상 환경(venv)을 활성화/비활성화하는 함수 세트
+# [사용] venv가 있는 폴더에서 'va' 실행, 빠져나올 땐 'vd' 실행
+# ------------------------------------------------------------------
+
+# 가상 환경 활성화 함수 (va)
+#
+ven_start() {
+  local VENV_PATH=""
+  local VENV_NAME=""
+
+  # 1. 인수가 주어졌는지 확인
+  if [ -n "$1" ]; then
+    # 인수가 있으면 그 이름으로 경로를 찾음
+    if [ -f "$1/bin/activate" ]; then
+      VENV_PATH="$1/bin/activate"
+    fi
+  else
+    # 2. 인수가 없으면, 흔한 이름들로 현재 폴더에서 검색
+    local common_names=("venv" ".venv" "env")
+    for name in "${common_names[@]}"; do
+      if [ -f "$name/bin/activate" ]; then
+        VENV_PATH="$name/bin/activate"
+        break # 찾으면 바로 중단
+      fi
+    done
+  fi
+
+  # 3. 경로를 찾았는지 여부에 따라 활성화 또는 오류 메시지 출력
+  if [ -n "$VENV_PATH" ]; then
+    source "$VENV_PATH"
+    # 활성화된 가상 환경의 이름을 프롬프트에 예쁘게 표시
+    VENV_NAME=$(basename "$(dirname "$PWD/$VENV_PATH")")
+    echo "✅ [$VENV_NAME] 가상 환경이 활성화되었습니다."
+  else
+    echo "❌ 현재 위치에서 활성화할 가상 환경을 찾을 수 없습니다."
+    echo "👉 사용법: ven_start [가상환경_이름] (이름 생략 시 'venv', '.venv' 등을 찾습니다)"
+  fi
+
+}
+
+
+# 가상 환경 비활성화 함수 (vd)
+ven_finish() {
+  # 현재 가상 환경이 활성화된 상태인지 확인
+  if [ -n "$VIRTUAL_ENV" ]; then
+    deactivate
+    echo "🔵 가상 환경이 비활성화되었습니다."
+  else
+    echo "ℹ️ 현재 활성화된 가상 환경이 없습니다."
+  fi
+}
+
+
+ven_create(){
+        if [ -z "$1" ]; then
+                echo "❌ 오류: 가상 환경 이름을 입력해주세요."
+                echo "👉 사용법: ven_create <가상환경_이름>"
+                return 1 # 실패를 의미하는 종료 코드 1을 반환
+        fi
+
+        # 로컬변수 선언
+        local VENV_NAME=$1
+
+        echo "🐍 '$VENV_NAME' 이름으로 Python 가상 환경을 생성합니다..."
+
+        # 가상 환경 생성 (python3를 명시적으로 사용)
+        python3 -m venv "$VENV_NAME"
+
+        echo "✅ 가상 환경 '$VENV_NAME' 생성이 완료되었습니다."
+        echo "🚀 아래 명령어로 활성화하세요:"
+        echo "source $VENV_NAME/bin/activate"
+
+}
