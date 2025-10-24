@@ -1,13 +1,22 @@
 # test_cv.py
-import cv2
-import numpy as np
+import cv2 as cv
 
-# 빈 이미지(검정 배경) 만들기
-img = np.zeros((300, 400, 3), dtype=np.uint8)
+img = cv.imread('soccer.jpg')
+# gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
+gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
 
-# 파란색 사각형 그리기
-cv2.rectangle(img, (50, 50), (350, 250), (255, 0, 0), -1)
+grad_x=cv.Sobel(gray, cv.CV_32F,1,0,ksize=3)
+grad_y=cv.Sobel(gray, cv.CV_32F,0,1,ksize=3)
 
-# 저장 (imshow 대신 파일로 확인)
-cv2.imwrite("blue_rect.jpg", img)
-print("✅ blue_rect.jpg 파일이 생성되었습니다.")
+sobel_x=cv.convertScaleAbs(grad_x)
+sobel_y=cv.convertScaleAbs(grad_y)
+
+edge_strength = cv.addWeighted(sobel_x,0.5, sobel_y,0.5,0)
+
+cv.imshow('Original',gray)
+cv.imshow('sobelx',sobel_x)
+cv.imshow('sobely',sobel_y)
+cv.imshow('edge strength',edge_strength)
+
+cv.waitKey()
+cv.destroyAllWindows()
