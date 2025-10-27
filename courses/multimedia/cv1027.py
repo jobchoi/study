@@ -5,6 +5,9 @@ import cv2 as cv
 # 2. numpy를 이용해서, img를 잘라 본다.
 # 3. 그게 익숙해지면, 행(r),열(c) 번호를 입력받아서 부분부분 출력하는거 까지.
 
+def myGray(imgCp):
+    print(f"img : {imgCp}")
+
 img = cv.imread('soccer.jpg')
 # cv.split
 # b,g,r = cv.split(img)
@@ -16,8 +19,8 @@ img = cv.imread('soccer.jpg')
 
 # numpy로 버퍼 만들어서 해보기
 
-# bufnp = np.array(img)
-bufnp =np.copy(img)
+# bufnp = np.array(img)자
+bufnp =np.copy(img) # np를 쓸때는 copy.
 print(" bufnp : ",bufnp.shape)
 
 # bImg=img[:,:,0]
@@ -38,4 +41,25 @@ print("img.shape : ",img.shape)
 # print(type(img))
 
 
-# cv.waitKey(0)
+# 영역 나눠서 띄워보기
+cv.imshow('Upper left half',img[0:img.shape[0]//2, 
+                                0:img.shape[1]//2, 
+                                :])
+
+
+# weighted average  : 0.299*R + 0.587*G + 0.114*B
+# luminosity method :
+
+# 0~255인지 0~1인지 파일을 읽어서 확인
+
+# cv.imshow('center',
+#           img[
+#               img.shape[0]//4:
+#               3*img.shape[0]//4,img.shape[1]//4:
+#               3*img.shape[1]//4,:
+#               ])
+myGray(img)
+
+
+cv.waitKey(0)
+
