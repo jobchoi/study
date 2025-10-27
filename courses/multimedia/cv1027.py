@@ -6,7 +6,23 @@ import cv2 as cv
 # 3. 그게 익숙해지면, 행(r),열(c) 번호를 입력받아서 부분부분 출력하는거 까지.
 
 def myGray(imgCp):
-    print(f"img : {imgCp}")
+    fimg = np.array(imgCp)
+
+    if fimg is None:
+        print("no img")
+    else :
+        print("len : ",len(imgCp[:,:,0]))    
+
+        bimgTr = imgCp[:,:,0] * 0.114    
+        gimgTr = imgCp[:,:,1] * 0.587
+        rimgTr = imgCp[:,:,2] * 0.299
+
+        totalImg = np.uint8(bimgTr + gimgTr +rimgTr)  
+
+        cv.imshow('',totalImg)
+
+        cv.waitKey()
+
 
 img = cv.imread('soccer.jpg')
 # cv.split
@@ -20,14 +36,14 @@ img = cv.imread('soccer.jpg')
 # numpy로 버퍼 만들어서 해보기
 
 # bufnp = np.array(img)자
-bufnp =np.copy(img) # np를 쓸때는 copy.
-print(" bufnp : ",bufnp.shape)
+# bufnp =np.copy(img) # np를 쓸때는 copy.
+# print(" bufnp : ",bufnp.shape)
 
 # bImg=img[:,:,0]
 # gImg=img[:,:,1]
 # rImg=img[:,:,2]
 
-print("img.shape : ",img.shape)
+# print("img.shape : ",img.shape)
 # print("blue : ",bImg.shape)
 # print("green : ",gImg.shape)
 # print("red : ",rImg.shape)
@@ -42,9 +58,9 @@ print("img.shape : ",img.shape)
 
 
 # 영역 나눠서 띄워보기
-cv.imshow('Upper left half',img[0:img.shape[0]//2, 
-                                0:img.shape[1]//2, 
-                                :])
+# cv.imshow('Upper left half',img[0:img.shape[0]//2, 
+#                                 0:img.shape[1]//2, 
+#                                 :])
 
 
 # weighted average  : 0.299*R + 0.587*G + 0.114*B
@@ -61,5 +77,5 @@ cv.imshow('Upper left half',img[0:img.shape[0]//2,
 myGray(img)
 
 
-cv.waitKey(0)
+# cv.waitKey(0)
 
