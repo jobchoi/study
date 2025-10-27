@@ -5,6 +5,9 @@ import cv2 as cv
 # 2. numpy를 이용해서, img를 잘라 본다.
 # 3. 그게 익숙해지면, 행(r),열(c) 번호를 입력받아서 부분부분 출력하는거 까지.
 
+def myGray(imgCp):
+    print(f"img : {imgCp}")
+
 img = cv.imread('soccer.jpg')
 # cv.split
 # b,g,r = cv.split(img)
@@ -55,7 +58,7 @@ cv.imshow('Upper left half',img[0:img.shape[0]//2,
 #               3*img.shape[0]//4,img.shape[1]//4:
 #               3*img.shape[1]//4,:
 #               ])
-
+myGray(img)
 
 
 cv.waitKey(0)
