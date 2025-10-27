@@ -1,3 +1,4 @@
+import random as rd
 
 # # 함수명 : calculateSum
 # # 파라미터 : intNum_list
@@ -107,3 +108,22 @@
 # cntNum = my_list.count(7)
 
 # print(f"중복숫자 갯수 : {cntNum}")
+
+scores = [32,56,64,72,12,37,98,77,59,69]
+print(scores)
+
+scores2 = []
+for i in range(10) :
+    # scores2.append(int(input("input scores : ")))
+    # scores2.append(rd.randrange(10,90))
+    
+    # 처음 리스트가 공백으로 생성한 상태라 아래처럼 인덱스 바로 접근해서 값을 저장하면 인덱스 에러가 뜸
+    scores2[i] = rd.randrange(10,90)
+
+    # 1. 초기 생성시 10개든 20개든 정해진 크기로 만든다. 기존에 생성된 위치에 = 연산자로 값을 넣는거(바뀌는 경우)는 가능하다.
+    # scores2[0]*10 -> 10개짜리를 미리 만들어 둔다.
+    
+
+for i in range(len(scores2)) :
+    print(i, scores2[i])
+# print(scores2)
