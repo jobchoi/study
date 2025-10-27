@@ -1,63 +1,94 @@
-# 사용자에게 정수 5개를 입력받고,
-# 평균, 최댓값, 최솟값, 정렬 결과를 딕셔너리 형태로 반환하시오.
-# ✨ 힌트
+# aster_stats_io.py
+# 데이터 타입을 명시하는데 사용, 3.5버전부터 도입된 사항
+from __future__ import annotations
 
-# 1. input() → 문자열이므로 int()로 변환해야 함
-# 2. max(), min(), sum(), len()을 적극 활용
-# 3. 결과는 딕셔너리로 구성
+# json 확장자 파일로 저장하기 위해 추가
+import json
+# csv 확장자 파일로 저장하기 위해 추가
+import csv  
 
+# 파라미터 타입 line, 문자열 입력을 -> list형식에 정수 타입으로 변경
+def get_numbers_from_line(line: str) -> list[int]:
+    
+    # split()를 통해 공백 구분자로 들어온 입력을 자름
+    """공백으로 구분된 정수 한 줄을 파싱"""
+    parts = line.strip().split()
+    return [int(p) for p in parts]
 
-# listNums = [] # 글로벌에서 로컬로 변경
-
-def analyze(nums):
-    # print(f" max : {max(getListNum)}")
-    # print(f" min : {min(getListNum)}")
-    # print(f" sort : {sorted(getListNum)}")        
-
-    # print(f"result : {getListNum}")    
-    # pass
+def summarize(nums: list[int]) -> dict:
+    
+    # 데이터 존재 여부 확인
     if not nums:
-        print("빈 목록입니다")
-        return
-    result = {
-        "개수": len(nums),
-        "평균": sum(nums)/len(nums),
-        "최대값": max(nums),
-        "최소값": min(nums),
-        "오름차순": sorted(nums)        
+        # 없으면 메시지 출력 
+        raise ValueError("빈 입력입니다.")
+    # 딕셔너리 형태로 내장함수를 이용하여 결과값 저장
+    return {
+        "count": len(nums),
+        "mean": sum(nums) / len(nums),
+        "max": max(nums),
+        "min": min(nums),
+        "sorted": sorted(nums),
     }
 
-    print("\[결과]")
-    for k, v in result.items():
-        print(f"{k} : {v}")
-    return result
+# ---------- CSV ----------
+def save_csv(stats: dict, path: str = "result.csv") -> None:
+    """단일 통계 dict를 1행 CSV로 저장"""
+    # 리스트(예: sorted)는 문자열로 저장(단순성 우선)
+    row = {
+        "count": stats["count"],
+        "mean": stats["mean"],
+        "max": stats["max"],
+        "min": stats["min"],
+        "sorted": " ".join(map(str, stats["sorted"])),
+    }
 
-# def get_number():
-def get_number(prompt="숫자입력"):
+    # 파일을 w(쓰기 모드)로 연다, 인코딩은 utf-8, 파일디스크립터(?) f에 저장
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=row.keys())
+        writer.writeheader()
+        writer.writerow(row)
 
-    # inputNum = input(int("숫자 입력"))
-    # # pass
-    # return inputNum
-    while True:
-        s = input(prompt)
-        try:
-            return int(s)
-        except ValueError:
-            print("정수를 입력하세요")
+def load_csv(path: str = "result.csv") -> dict:
 
-# def main():
-def main(n = 10):
+    # 파일을 읽기 모드로 연다.
+    with open(path, "r", encoding="utf-8") as f:
+        # 
+        reader = csv.DictReader(f)
 
-    nums = []
+        row = next(reader)
+    # 문자열을 원래 타입으로 복원
+    stats = {
+        "count": int(row["count"]),
+        "mean": float(row["mean"]),
+        "max": int(row["max"]),
+        "min": int(row["min"]),
+        "sorted": list(map(int, row["sorted"].split())),
+    }
+    return stats
 
-    # for i in range(10):
-    for i in range(n):
-        # listNums.append(get_number())
-        nums.append(get_number(f"{i+1}번째 숫자"))
-    
-    # analyze(listNums)
-    analyze(nums)
-    
+# ---------- JSON ----------
+def save_json(stats: dict, path: str = "result.json") -> None:
+    """JSON은 구조를 그대로 보존(리스트도 그대로)"""
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(stats, f, ensure_ascii=False, separators=(",", ":"))
+
+def load_json(path: str = "result.json") -> dict:
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+# ---------- CLI 흐름 ----------
+def main():
+    line = input("정수들을 공백으로 입력하세요 (예: 5 1 6 10 80 ...):\n> ")
+    nums = get_numbers_from_line(line)
+    stats = summarize(nums)
+
+    # 저장
+    save_csv(stats, "result.csv")
+    save_json(stats, "result.json")
+
+    print("[저장 완료]")
+    print("- result.csv")
+    print("- result.json")
 
 if __name__ == "__main__":
     main()
