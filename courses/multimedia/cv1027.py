@@ -16,8 +16,8 @@ img = cv.imread('soccer.jpg')
 
 # numpy로 버퍼 만들어서 해보기
 
-# bufnp = np.array(img)
-bufnp =np.copy(img)
+# bufnp = np.array(img)자
+bufnp =np.copy(img) # np를 쓸때는 copy.
 print(" bufnp : ",bufnp.shape)
 
 # bImg=img[:,:,0]
@@ -38,4 +38,25 @@ print("img.shape : ",img.shape)
 # print(type(img))
 
 
-# cv.waitKey(0)
+# 영역 나눠서 띄워보기
+cv.imshow('Upper left half',img[0:img.shape[0]//2, 
+                                0:img.shape[1]//2, 
+                                :])
+
+
+# weighted average  : 0.299*R + 0.587*G + 0.114*B
+# luminosity method :
+
+# 0~255인지 0~1인지 파일을 읽어서 확인
+
+# cv.imshow('center',
+#           img[
+#               img.shape[0]//4:
+#               3*img.shape[0]//4,img.shape[1]//4:
+#               3*img.shape[1]//4,:
+#               ])
+
+
+
+cv.waitKey(0)
+
