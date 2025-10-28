@@ -17,9 +17,12 @@ def myGray(imgCp):
         gimgTr = imgCp[:,:,1] * 0.587
         rimgTr = imgCp[:,:,2] * 0.299
 
+        print("1")
         totalImg = np.uint8(bimgTr + gimgTr +rimgTr)  
 
+        print("2")
         cv.imshow('',totalImg)
+        print("3")
 
         cv.waitKey()
 
