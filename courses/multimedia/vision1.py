@@ -1,7 +1,7 @@
 import cv2 as cv    
 import sys
 
-img = cv.imread('./soccer.jpg')
+img = cv.imread('soccer.jpg')
 
 if img is None:
     sys.exit("Could not read the image.")
