@@ -11,11 +11,12 @@ img = cv.imread('soccer.jpg')
 gimg = cv.imread('soccer.jpg',cv.IMREAD_GRAYSCALE)
 
 # img2 = np.asarray(img)
-img2 = np.asarray(gimg)
-aug = iaa.SaltAndPepper(p=0.05)
+img2 = np.asarray(img)
+aug = iaa.SaltAndPepper(p=0.05) # 0.05 => 5% 픽셀이 100개중 5개에 
 img2 = aug.augment_image(img2)
-ngimg = aug.augment_image(img2)
+# ngimg = aug.augment_image(img2)
 
+cv.imshow(img2)
 
 
 
@@ -48,10 +49,10 @@ for i in range(0, height, 1) :
 # median filtering 한 것을 넣는다. 
 
 
-cv.imshow(ngimg)
+# cv.imshow(ngimg)
 # cv.imshow(fngimg) # 필터
 # cv.imshow('test',img)
-cv.imshow(img2)
+# cv.imshow(img2)
 
 # cv.waitKey()
 
