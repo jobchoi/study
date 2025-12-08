@@ -14,9 +14,11 @@ gimg = cv.imread('soccer.jpg',cv.IMREAD_GRAYSCALE)
 img2 = np.asarray(gimg)
 aug = iaa.SaltAndPepper(p=0.05)
 img2 = aug.augment_image(img2)
+ngimg = aug.augment_image(img2)
 
-# cv.imshow('test',img)
-cv.imshow('test',img2)
+
+
+
 
 d = img.shape
 hCnt = 0
@@ -31,12 +33,27 @@ width = img.shape[1]
 Total_px = 0 
 
 for i in range(0, height, 1) :
-    for j in range(0, width, 1) :
+    # for j in range(0, width, 1) :
+    for j in range(2, width, -2) : # 필터 예제 적용해보기
         Total_px = Total_px +1
+
 # print(f'totla px: {Total_px}')
+
+
+# 문제
+# range(2, w ||h , -2)
+# numpy slicing [i,j-2:j+3] 
+# pimg = 
+# fngimg = np.zero)_ 
+# median filtering 한 것을 넣는다. 
+
+
+cv.imshow(ngimg)
+# cv.imshow(fngimg) # 필터
+# cv.imshow('test',img)
+cv.imshow(img2)
+
 # cv.waitKey()
-
-
 
 
 
