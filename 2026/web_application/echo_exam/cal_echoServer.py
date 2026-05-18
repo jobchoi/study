@@ -2,11 +2,11 @@
 
 from socket import *
 
-port = 2500
+PORT = 2100
 BUFSIZE = 1024
 
 sock = socket(AF_INET, SOCK_STREAM)
-sock.bind(('',port))
+sock.bind(('',PORT))
 sock.listen(5)
 print("Waiting for clients")
 
@@ -27,6 +27,27 @@ while True:
         break
     else:
         print(data.decode())
+        spldata = data.decode()
+
+        if "+" in spldata:
+            print("+ chk : OK")
+            getData = int(spldata.split("+"))
+            print(f"{getData[0] + getData[1]}")
+
+        elif "-" in spldata:
+            print("-")
+        elif "*" in spldata:
+            print("*")
+        elif "/" in spldata:
+            print("/")
+
+        else:
+            print("입력 오류")
+        
+        
+            # print(f"{spldata.split()}")
+            # print(f"result : {spldata.split('+')}")
+
 
     try:
         c_sock.send(data)

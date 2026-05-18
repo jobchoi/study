@@ -2,7 +2,7 @@
 
 from socket import *
 
-port = 2500
+port = 2600
 BUFSIZE = 1024
 
 sock = socket(AF_INET, SOCK_STREAM)

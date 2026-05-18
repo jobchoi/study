@@ -1,16 +1,16 @@
 import socket
 
 BUFSIZE = 1024
-
+PORT = 2100
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 svrIP = input(("Server IP :(default : 127.0.0.1) : "))
 if svrIP == '':
     svrIP = '127.0.0.1'
 
-port = input("port(default : 2500) : ")
+port = input(f"port(default : {PORT}) : ")
 if port == '':
-    port = 2500
+    port = PORT
 else:
     port = int(port)
 
