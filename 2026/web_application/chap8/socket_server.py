@@ -34,6 +34,7 @@ readsocks = [server_socket]
 cleients = [] # 클라이언트 소켓 리스트
 
 print(f"⏰ 시간 브로드캐스트 서버 가동 중... (Port: {PORT})")
+
 last_send_time = time.time()
 
 try:
