@@ -1,65 +1,50 @@
 # 송수신 예외처리를 한 에코 서버
 
-from socket import *
+import cal_echo_M
+import setupSocket_M
 
-PORT = 2100
+PORT = 2000
 BUFSIZE = 1024
 
-sock = socket(AF_INET, SOCK_STREAM)
-sock.bind(('',PORT))
-sock.listen(5)
-print("Waiting for clients")
+sock = setupSocket_M.setUp_server(PORT, BUFSIZE)
 
-c_sock, (r_host,r_port) = sock.accept()
-print(f"Connected by {r_host}, {r_port}")
+
+# c_sock, (r_host,r_port) = sock.accept()
+# print(f"Connected by {r_host}, {r_port}")
 
 while True:
     try:
-        data=c_sock.recv(BUFSIZE)
+        data=sock.recv(BUFSIZE)
         
         if not data:
-            c_sock.close()
+            sock.close()
             print("연결이 종료되었습니다")
             break
     except:
         print("연결이 종료되었습니다.")
-        c_sock.close()
+        sock.close()
         break
     else:
         print(data.decode())
         spldata = data.decode()
 
-        if "+" in spldata:
-            print("+ chk : OK")
-            getData = spldata.split("+")
-            print(f"{getData[0]} + {getData[1]} = {int(getData[0]) + int(getData[1])}")
-
-        elif "-" in spldata:
-            print("-")
-            getData = spldata.split("-")
-            print(f"{getData[0]} - {getData[1]} = {int(getData[0]) - int(getData[1])}")
-        elif "*" in spldata:
-            print("*")
-            getData = spldata.split("*")
-            print(f"{getData[0]} * {getData[1]} = {int(getData[0]) * int(getData[1])}")
-        elif "/" in spldata:
-            print("/")
-            getData = spldata.split("/")
-            print(f"{getData[0]} / {getData[1]} = {int(getData[0]) / int(getData[1])}")
-
-        else:
-            print("입력 오류")
-        
-        
-            # print(f"{spldata.split()}")
-            # print(f"result : {spldata.split('+')}")
+        is_valid = cal_echo_M.chk_input(spldata)
+        if not is_valid:
+            sock.send("연산자 오류".encode())
+            continue
 
 
-    try:
-        c_sock.send(data)
-    except:
-        print("연결이 종료되었습니다.")
-        c_sock.close()
-        break
-        
+#       C -> S 입력된 문자열에서 연산자를 체크
+        if not is_valid:
+            sock.send("연산자 오류".encode())
+            continue    
+
+        result_cal = cal_echo_M.cal_task(spldata)
+
+        try:
+            sock.send(str(result_cal).encode())
+        except:
+            print("연결이 종료되었습니다.")
+            sock.close()
+            break   
 
