@@ -31,15 +31,21 @@ while True:
 
         if "+" in spldata:
             print("+ chk : OK")
-            getData = int(spldata.split("+"))
-            print(f"{getData[0] + getData[1]}")
+            getData = spldata.split("+")
+            print(f"{getData[0]} + {getData[1]} = {int(getData[0]) + int(getData[1])}")
 
         elif "-" in spldata:
             print("-")
+            getData = spldata.split("-")
+            print(f"{getData[0]} - {getData[1]} = {int(getData[0]) - int(getData[1])}")
         elif "*" in spldata:
             print("*")
+            getData = spldata.split("*")
+            print(f"{getData[0]} * {getData[1]} = {int(getData[0]) * int(getData[1])}")
         elif "/" in spldata:
             print("/")
+            getData = spldata.split("/")
+            print(f"{getData[0]} / {getData[1]} = {int(getData[0]) / int(getData[1])}")
 
         else:
             print("입력 오류")
