@@ -1,0 +1,38 @@
+# 송수신 예외처리를 한 에코 서버
+
+from socket import *
+
+port = 2600
+BUFSIZE = 1024
+
+sock = socket(AF_INET, SOCK_STREAM)
+sock.bind(('',port))
+sock.listen(5)
+print("Waiting for clients")
+
+c_sock, (r_host,r_port) = sock.accept()
+print(f"Connected by {r_host}, {r_port}")
+
+while True:
+    try:
+        data=c_sock.recv(BUFSIZE)
+        
+        if not data:
+            c_sock.close()
+            print("연결이 종료되었습니다")
+            break
+    except:
+        print("연결이 종료되었습니다.")
+        c_sock.close()
+        break
+    else:
+        print(data.decode())
+
+    try:
+        c_sock.send(data)
+    except:
+        print("연결이 종료되었습니다.")
+        c_sock.close()
+        break
+        
+
