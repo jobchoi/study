@@ -20,6 +20,8 @@ conn, (remotehost, remoteport) = s.accept()
 print(f'connected by :{remotehost} / {remoteport} ')
 
 
+calM = cal_echo_M.CalEchoM()  
+result_cal = ''
 
 
 while True:
@@ -35,10 +37,9 @@ while True:
         # conn.send(data.encode())
         
         spldata = data.decode().strip()
-        result_cal = cal_echo_M.CalEchoM.cal_task(spldata)
-        conn.send(result_cal.encode())
+        result_cal = calM.cal_task(spldata)
+        conn.send(str(result_cal).encode())
     except:
         pass
     else:
         conn.close()
-
