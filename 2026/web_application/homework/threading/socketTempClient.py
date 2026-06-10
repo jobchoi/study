@@ -1,22 +1,29 @@
+from asyncio import sleep, wait
 from tkinter import *
 from socket import *
 import threading
 import struct
 
 BUFSIZE = 1024
-PORT = 2500
+PORT = 2000
 
 def calculate():
     global temp
-    temp = float(entry1.get())
-    sock.send(str(temp).encode())
+    # temp = float(entry1.get())
+    sendMsg = str(entry1.get())
+    # sock.send(str(temp).encode())
+    sock.send(sendMsg.encode()) 
+    print(f"====> chk Send data: {sendMsg}")   
 
 def handler(sock):
     while True:
         try :
             r_msg = sock.recv(BUFSIZE)
-        except:
-            pass
+            print(f"====> chk Received data: {r_msg.decode()}")
+        except EOFError as eof:
+            print(" ==> EOFError: ", eof)
+            break
+            # pass
         else:
             entry2.delete(0,END)
             entry2.insert(0,r_msg.decode())

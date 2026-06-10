@@ -2,7 +2,7 @@ import sys
 from socket import *
 import cal_echo_M
 
-ECHO_PORT = 2500
+ECHO_PORT = 2000
 BUFSIZE = 1024
 
 if len(sys.argv) > 1:
@@ -17,7 +17,7 @@ s.listen(1)
 
 print("Waitting for connetion from client")
 conn, (remotehost, remoteport) = s.accept()
-print(f'connected by :{remotehost} / {remoteport} ')
+print(f'Connected by :{remotehost} / {remoteport} ')
 
 
 calM = cal_echo_M.CalEchoM()  
@@ -25,9 +25,12 @@ result_cal = ''
 
 
 while True:
+    
     try :
+        print("Waiting for data from client...")
         data = conn.recv(BUFSIZE)
 
+        print(f"====> chk Received data: {data.decode()}")
         if not data:
             print("데이타가 없음, 연결 종료")
             break
@@ -37,9 +40,18 @@ while True:
         # conn.send(data.encode())
         
         spldata = data.decode().strip()
+
+        print(f"==> Received data: {spldata}")
+
         result_cal = calM.cal_task(spldata)
         conn.send(str(result_cal).encode())
-    except:
-        pass
+    except ValueError as ve:
+        print(f"Value error: {ve}")
+        conn.send("입력 오류 - 숫자만 입력해주세요.".encode())
+        continue
+    except Exception as e:
+        print(f"Error occurred: {e}")
+        conn.send("서버 오류 - 다시 시도해주세요.".encode())
+        break
     else:
         conn.close()
