@@ -1,5 +1,6 @@
 import sys
-from socket import *
+# from socket import *
+import socket   
 import cal_echo_M
 
 ECHO_PORT = 2000
@@ -10,8 +11,8 @@ if len(sys.argv) > 1:
 else:
     port = ECHO_PORT
 
-s= socket(AF_INET, SOCK_STREAM)
-s.setsockopt(SOL_SOCKET, SO_REUSEADDR,1)
+s= socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR,1)
 s.bind(('',port))
 s.listen(1)
 

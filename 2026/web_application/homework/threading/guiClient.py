@@ -1,6 +1,8 @@
 from asyncio import sleep, wait
-from tkinter import *
-from socket import *
+# from tkinter import *
+import tkinter as tk
+# from socket import *
+import socket
 import threading
 import struct
 
@@ -25,22 +27,22 @@ def handler(sock):
             break
             # pass
         else:
-            entry2.delete(0,END)
+            entry2.delete(0,tk.END)
             entry2.insert(0,r_msg.decode())
-            entry1.delete(0, END)
-sock = socket(AF_INET,SOCK_STREAM)
+            entry1.delete(0, tk.END)
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 sock.connect(("localhost",PORT))
 
-root = Tk()
-message_label = Label(text='Enter a temperture(C)',font=('Verdana',16))
-entry1 = Entry(font=('Verdana',16),width=5)
-recv_label = Label(text='Temperature in F', font=('Verdana',16))
-entry2 = Entry(font=('Verdana',16),width=5)
+root = tk.Tk()
+message_label = tk.Label(text='Enter a temperture(C)',font=('Verdana',16))
+entry1 = tk.Entry(font=('Verdana',16),width=5)
+recv_label = tk.Label(text='Temperature in F', font=('Verdana',16))
+entry2 = tk.Entry(font=('Verdana',16),width=5)
 
-calc_button = Button(text='전송', font=('Verdana',12),command=calculate)
+calc_button = tk.Button(text='전송', font=('Verdana',12),command=calculate)
 
-message_label.grid(row=0, column=0, sticky=W)
-recv_label.grid(row=1,column=0,sticky=W)
+message_label.grid(row=0, column=0, sticky=tk.W)
+recv_label.grid(row=1,column=0,sticky=tk.W)
 entry1.grid(row=0,column=1)
 entry2.grid(row=1,column=1)
 calc_button.grid(row=0, column=2, padx=10,pady=10)
@@ -50,4 +52,4 @@ cThread = threading.Thread(target=handler, args=(sock,))
 cThread.daemon = True
 cThread.start()
 
-mainloop()
+root.mainloop()
