@@ -27,7 +27,7 @@ def handler(sock):
             
             # 서버가 close했을 때 들어오는 b'' 패킷 검출 -> 수신 스레드 소멸
             if not r_msg:
-                print("서버가 연결을 종료했습니다. 백그라운드 수신 스레드를 마칩니다.")
+                print("서버가 연결을 종료했습니다. Thread End")
                 break
                 
             decoded_msg = r_msg.decode().strip()
